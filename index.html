@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Убегающая кнопка</title>
+  <style>
+    .btb {
+      position: absolute;
+      top: 54.5%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 120px;
+      height: 60px;
+      font-size: 25px;
+    }
+
+    .btn{
+        width: 120px;
+        height: 60px;
+        font-size: 25px;
+        position: absolute;
+      top: 50%;
+      left: 35%;
+    }
+
+    img{
+        width: 250px;
+        height: 250px;
+        margin-left: 36%;
+    }
+
+    h1{
+        margin-left: 38%;
+    }
+
+    button{
+        margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+    <img src="./ulan.jpg" alt="">
+    <h1>Улан гейби?</h1>
+    <a href="./btn.html"><button class="btn">Ооба</button></a>
+<button class="btb" id="runAwayButton" onmouseenter="runAway()" onmouseleave="stopRunning()">Жок</button>
+
+<script>
+  var isRunning = false;
+  var interval;
+
+  function runAway() {
+    isRunning = true;
+    interval = setInterval(moveButton, 100);
+  }
+
+  function stopRunning() {
+    isRunning = false;
+    clearInterval(interval);
+  }
+
+  function moveButton() {
+    var button = document.getElementById('runAwayButton');
+    var x = Math.random() * window.innerWidth;
+    var y = Math.random() * window.innerHeight;
+    button.style.left = x + 'px';
+    button.style.top = y + 'px';
+  }
+</script>
+
+</body>
+</html>
